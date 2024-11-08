@@ -58,10 +58,19 @@ public class MainActivity extends AppCompatActivity {
     public void equalsOnClick(View view) {
         textStream = display.getText().toString();
         textStream = textStream.replaceAll("√","Math.sqrt");
+        textStream = textStream.replaceAll("sin","Math.sin");
+        textStream = textStream.replaceAll("cos","Math.cos");
+        textStream = textStream.replaceAll("tan","Math.tan");
         Double result;
         try {
             result = (Double) engine.eval(textStream);
-            display.setText(String.valueOf(result));
+            if (result%1==0){
+                double doubleValue = result;
+                int intValue = (int) doubleValue;
+                display.setText(String.valueOf(intValue));
+            } else{
+                display.setText(String.valueOf(result));
+            }
         } catch (ScriptException e) {
             Snackbar.make(view, "Invalid expression. Please try again.", Snackbar.LENGTH_LONG).show();
         }
@@ -138,11 +147,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sinOnClick(View view) {
+        display.append("sin(");
     }
 
     public void cosOnClick(View view) {
+        display.append("cos(");
     }
 
     public void tanOnClick(View view) {
+        display.append("tan(");
     }
+
 }
