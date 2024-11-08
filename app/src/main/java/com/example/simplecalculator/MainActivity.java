@@ -2,7 +2,7 @@ package com.example.simplecalculator;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,84 +17,132 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 public class MainActivity extends AppCompatActivity {
-    private ScriptEngine engine;
+    ScriptEngine engine;
+    EditText display;
+    String textStream;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        ScriptEngine engine = new ScriptEngineManager().getEngineByName("rhino");
+         engine = new ScriptEngineManager().getEngineByName("rhino");
+         display = (EditText) findViewById(R.id.calculatorDisplayEditText);
 
     }
 
 
     public void zeroOnClick(View view) {
+        display.append("0");
+
     }
 
     public void dotOnClick(View view) {
+        display.append(".");
     }
 
     public void delOnClick(View view) {
+        String string = display.getText().toString();
+        if (!string.isEmpty()){
+            display.setText(string.substring(0, string.length() - 1));
+        }
     }
 
     public void equalsOnClick(View view) {
+        textStream = display.getText().toString();
+        textStream = textStream.replaceAll("√","Math.sqrt");
+        Double result;
+        try {
+            result = (Double) engine.eval(textStream);
+            display.setText(String.valueOf(result));
+        } catch (ScriptException e) {
+            Snackbar.make(view, "Invalid expression. Please try again.", Snackbar.LENGTH_LONG).show();
+        }
     }
 
     public void addOnClick(View view) {
+        display.append("+");
     }
 
     public void threeOnClick(View view) {
+        display.append("3");
     }
 
     public void twoOnClick(View view) {
+        display.append("2");
     }
 
     public void oneOnClick(View view) {
+        display.append("1");
     }
 
     public void fourOnClick(View view) {
+        display.append("4");
     }
 
     public void fiveOnClick(View view) {
+        display.append("5");
     }
 
     public void sixOnClick(View view) {
+        display.append("6");
     }
 
     public void subtractOnClick(View view) {
+        display.append("-");
     }
 
     public void sevenOnClick(View view) {
+        display.append("7");
     }
 
     public void eightOnClick(View view) {
+        display.append("8");
     }
 
     public void nineOnClick(View view) {
+        display.append("9");
     }
 
     public void multiplyOnClick(View view) {
+        display.append("*");
     }
 
     public void divideOnClick(View view) {
+        display.append("/");
     }
 
     public void squareRootOnClick(View view) {
+        display.append("√(");
     }
 
     public void openBracketOnClick(View view) {
+        display.append("(");
     }
 
     public void closedBracketOnClick(View view) {
+        display.append(")");
     }
 
     public void allClearOnClick(View view) {
+        display.setText("");
+        textStream="";
+
+    }
+
+    public void sinOnClick(View view) {
+    }
+
+    public void cosOnClick(View view) {
+    }
+
+    public void tanOnClick(View view) {
     }
 }

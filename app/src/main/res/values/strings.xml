@@ -23,4 +23,7 @@
     <string name="closedBracket">)</string>
     <string name="squareRootSymbol">√</string>
     <string name="divideSymbol">/</string>
+    <string name="sin">sin</string>
+    <string name="cos">cos</string>
+    <string name="tan">tan</string>
 </resources>
