@@ -33,6 +33,39 @@
         app:layout_constraintStart_toStartOf="@id/titleText"
         app:layout_constraintTop_toBottomOf="@+id/titleText" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        app:layout_constraintBottom_toTopOf="@id/allClearButton"
+        app:layout_constraintTop_toBottomOf="@id/subtitleText"
+        android:layout_marginHorizontal="16dp">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+
+            <EditText
+                android:id="@+id/calculatorDisplayEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+
+                android:background="@android:color/transparent"
+                android:textSize="60sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-thin"
+                android:gravity="end"
+                android:textAlignment="viewEnd"
+
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+
     <Button
         android:id="@+id/zeroButton"
         android:layout_width="90dp"
