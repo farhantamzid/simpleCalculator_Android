@@ -1,6 +1,7 @@
 package com.example.simplecalculator;
 
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 
@@ -35,23 +36,44 @@ public class MainActivity extends AppCompatActivity {
 
          engine = new ScriptEngineManager().getEngineByName("rhino");
          display = (EditText) findViewById(R.id.calculatorDisplayEditText);
-
     }
 
 
     public void zeroOnClick(View view) {
-        display.append("0");
+        if (display.getSelectionStart() == display.length()) {
+            display.append("0");
+        } else {
+            int cursorPos = display.getSelectionStart();
+            String oldText = display.getText().toString();
 
+            String newText = oldText.substring(0, cursorPos) + "0" + oldText.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos + 1);
+        }
     }
 
     public void dotOnClick(View view) {
-        display.append(".");
+        if (display.getSelectionStart() == display.length()) {
+            display.append(".");
+        } else {
+            int cursorPos = display.getSelectionStart();
+            String oldText = display.getText().toString();
+
+            String newText = oldText.substring(0,cursorPos) + "." + oldText.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos + 1);
+        }
     }
 
     public void delOnClick(View view) {
+        int cursorPos = display.getSelectionStart();
         String string = display.getText().toString();
-        if (!string.isEmpty()){
-            display.setText(string.substring(0, string.length() - 1));
+
+
+        if (!string.isEmpty() && cursorPos > 0) {
+            String newText = string.substring(0, cursorPos - 1) + string.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos - 1);
         }
     }
 
@@ -68,8 +90,10 @@ public class MainActivity extends AppCompatActivity {
                 double doubleValue = result;
                 int intValue = (int) doubleValue;
                 display.setText(String.valueOf(intValue));
+                display.setSelection(display.length());
             } else{
                 display.setText(String.valueOf(result));
+                display.setSelection(display.length());
             }
         } catch (ScriptException e) {
             Snackbar.make(view, "Invalid expression. Please try again.", Snackbar.LENGTH_LONG).show();
@@ -77,67 +101,211 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addOnClick(View view) {
-        display.append("+");
+        if (display.getSelectionStart() == display.length()) {
+            display.append("+");
+        } else {
+            int cursorPos = display.getSelectionStart();
+            String oldText = display.getText().toString();
+
+            String newText = oldText.substring(0, cursorPos) + "+" + oldText.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos + 1);
+        }
     }
 
     public void threeOnClick(View view) {
-        display.append("3");
+        if (display.getSelectionStart() == display.length()) {
+            display.append("3");
+        } else {
+            int cursorPos = display.getSelectionStart();
+            String oldText = display.getText().toString();
+
+            String newText = oldText.substring(0, cursorPos) + "3" + oldText.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos + 1);
+        }
     }
 
     public void twoOnClick(View view) {
-        display.append("2");
+        if (display.getSelectionStart() == display.length()) {
+            display.append("2");
+        } else {
+            int cursorPos = display.getSelectionStart();
+            String oldText = display.getText().toString();
+
+            String newText = oldText.substring(0, cursorPos) + "2" + oldText.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos + 1);
+        }
     }
 
     public void oneOnClick(View view) {
-        display.append("1");
+        if (display.getSelectionStart() == display.length()) {
+            display.append("1");
+        } else {
+            int cursorPos = display.getSelectionStart();
+            String oldText = display.getText().toString();
+
+            String newText = oldText.substring(0, cursorPos) + "1" + oldText.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos + 1);
+        }
     }
 
     public void fourOnClick(View view) {
-        display.append("4");
+        if (display.getSelectionStart() == display.length()) {
+            display.append("4");
+        } else {
+            int cursorPos = display.getSelectionStart();
+            String oldText = display.getText().toString();
+
+            String newText = oldText.substring(0, cursorPos) + "4" + oldText.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos + 1);
+        }
     }
 
     public void fiveOnClick(View view) {
-        display.append("5");
+        if (display.getSelectionStart() == display.length()) {
+            display.append("5");
+        } else {
+            int cursorPos = display.getSelectionStart();
+            String oldText = display.getText().toString();
+
+            String newText = oldText.substring(0, cursorPos) + "5" + oldText.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos + 1);
+        }
     }
 
     public void sixOnClick(View view) {
-        display.append("6");
+        if (display.getSelectionStart() == display.length()) {
+            display.append("6");
+        } else {
+            int cursorPos = display.getSelectionStart();
+            String oldText = display.getText().toString();
+
+            String newText = oldText.substring(0, cursorPos) + "6" + oldText.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos + 1);
+        }
     }
 
     public void subtractOnClick(View view) {
-        display.append("-");
+        if (display.getSelectionStart() == display.length()) {
+            display.append("-");
+        } else {
+            int cursorPos = display.getSelectionStart();
+            String oldText = display.getText().toString();
+
+            String newText = oldText.substring(0, cursorPos) + "-" + oldText.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos + 1);
+        }
     }
 
     public void sevenOnClick(View view) {
-        display.append("7");
+        if (display.getSelectionStart() == display.length()) {
+            display.append("7");
+        } else {
+            int cursorPos = display.getSelectionStart();
+            String oldText = display.getText().toString();
+
+            String newText = oldText.substring(0, cursorPos) + "7" + oldText.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos + 1);
+        }
     }
 
     public void eightOnClick(View view) {
-        display.append("8");
+        if (display.getSelectionStart() == display.length()) {
+            display.append("8");
+        } else {
+            int cursorPos = display.getSelectionStart();
+            String oldText = display.getText().toString();
+
+            String newText = oldText.substring(0, cursorPos) + "8" + oldText.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos + 1);
+        }
     }
 
     public void nineOnClick(View view) {
-        display.append("9");
+        if (display.getSelectionStart() == display.length()) {
+            display.append("9");
+        } else {
+            int cursorPos = display.getSelectionStart();
+            String oldText = display.getText().toString();
+
+            String newText = oldText.substring(0, cursorPos) + "9" + oldText.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos + 1);
+        }
     }
 
     public void multiplyOnClick(View view) {
-        display.append("*");
+        if (display.getSelectionStart() == display.length()) {
+            display.append("*");
+        } else {
+            int cursorPos = display.getSelectionStart();
+            String oldText = display.getText().toString();
+
+            String newText = oldText.substring(0, cursorPos) + "*" + oldText.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos + 1);
+        }
     }
 
     public void divideOnClick(View view) {
-        display.append("/");
+        if (display.getSelectionStart() == display.length()) {
+            display.append("/");
+        } else {
+            int cursorPos = display.getSelectionStart();
+            String oldText = display.getText().toString();
+
+            String newText = oldText.substring(0, cursorPos) + "/" + oldText.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos + 1);
+        }
     }
 
     public void squareRootOnClick(View view) {
-        display.append("√(");
+        if (display.getSelectionStart() == display.length()) {
+            display.append("√(");
+        } else {
+            int cursorPos = display.getSelectionStart();
+            String oldText = display.getText().toString();
+
+            String newText = oldText.substring(0, cursorPos) + "√(" + oldText.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos + 2);
+        }
     }
 
     public void openBracketOnClick(View view) {
-        display.append("(");
+        if (display.getSelectionStart() == display.length()) {
+            display.append("(");
+        } else {
+            int cursorPos = display.getSelectionStart();
+            String oldText = display.getText().toString();
+
+            String newText = oldText.substring(0, cursorPos) + "(" + oldText.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos + 1);
+        }
     }
 
     public void closedBracketOnClick(View view) {
-        display.append(")");
+        if (display.getSelectionStart() == display.length()) {
+            display.append(")");
+        } else {
+            int cursorPos = display.getSelectionStart();
+            String oldText = display.getText().toString();
+
+            String newText = oldText.substring(0, cursorPos) + ")" + oldText.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos + 1);
+        }
     }
 
     public void allClearOnClick(View view) {
@@ -147,15 +315,42 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sinOnClick(View view) {
-        display.append("sin(");
+        if (display.getSelectionStart() == display.length()) {
+            display.append("sin(");
+        } else {
+            int cursorPos = display.getSelectionStart();
+            String oldText = display.getText().toString();
+
+            String newText = oldText.substring(0, cursorPos) + "sin(" + oldText.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos + 4);
+        }
     }
 
     public void cosOnClick(View view) {
-        display.append("cos(");
+        if (display.getSelectionStart() == display.length()) {
+            display.append("cos(");
+        } else {
+            int cursorPos = display.getSelectionStart();
+            String oldText = display.getText().toString();
+
+            String newText = oldText.substring(0, cursorPos) + "cos(" + oldText.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos + 4);
+        }
     }
 
     public void tanOnClick(View view) {
-        display.append("tan(");
+        if (display.getSelectionStart() == display.length()) {
+            display.append("tan(");
+        } else {
+            int cursorPos = display.getSelectionStart();
+            String oldText = display.getText().toString();
+
+            String newText = oldText.substring(0, cursorPos) + "tan(" + oldText.substring(cursorPos);
+            display.setText(newText);
+            display.setSelection(cursorPos + 4);
+        }
     }
 
 }
