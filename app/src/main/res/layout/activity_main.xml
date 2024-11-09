@@ -286,7 +286,7 @@
         android:fontFamily="sans-serif-thin"
         android:onClick="allClearOnClick"
         android:text="@string/ac"
-        android:textSize="33sp"
+        android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/divideButton"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -299,7 +299,7 @@
         android:fontFamily="sans-serif-thin"
         android:onClick="sinOnClick"
         android:text="@string/sin"
-        android:textSize="26sp"
+        android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/openBracketButton"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -312,7 +312,7 @@
         android:fontFamily="sans-serif-thin"
         android:onClick="cosOnClick"
         android:text="@string/cos"
-        android:textSize="26sp"
+        android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/closedBracketButton"
         app:layout_constraintEnd_toStartOf="@+id/tanButton"
         app:layout_constraintStart_toEndOf="@+id/sinButton" />
@@ -326,7 +326,7 @@
         android:fontFamily="sans-serif-thin"
         android:onClick="tanOnClick"
         android:text="@string/tan"
-        android:textSize="26sp"
+        android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/squareRootButton"
         app:layout_constraintEnd_toStartOf="@+id/allClearButton" />
 
